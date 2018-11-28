@@ -23,14 +23,17 @@ var node = svg.append("g")
   .data(graph.nodes)
   .enter().append("circle")
   .attr("r", 3)
-  .attr("fill", function (d,i) { return color(i); })
+  .attr("fill", function (d, i) { return color(d.source); })
   .call(d3.drag()
     .on("start", dragstarted)
     .on("drag", dragged)
     .on("end", dragended));
 
-node.append("title")
-  .text(function (d) { return d.name; });
+// node.append("title")
+//   .text(function (d) { return d.name; });
+node.on("mouseover", function (d) {
+  document.getElementById("nameText").innerHTML = d.name.split(' ')[0];
+});
 
 simulation
   .nodes(graph.nodes)
