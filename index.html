@@ -6,7 +6,7 @@
   <title>The d3 test</title>
   <style>
     .chart {
-      background-color: aliceblue;
+      background-color: transparent;
     }
 
     .main text {
@@ -26,6 +26,8 @@
     }
     svg {
       position: absolute;
+      fill: transparent;
+    
     }
   </style>
 
@@ -35,24 +37,18 @@
 </head>
 
 <body>
-  <div style={{
-    backgroundColor: 'lightpink',
-    resize: 'horizontal',
-    overflow: 'hidden',
-    width: '1000px',
-    height: 'auto',
-    
-    
-  }}>
-    <svg width="1500" height="1000" viewbox="0 0 1200 1200" preserveAspectRatio="xMidYMid meet"></svg>
-  </div>
+  <svg width="1500" height="1000" viewbox="0 0 1200 1200" preserveAspectRatio="xMidYMid meet">
+
+    <style>
+      .nameText{ font: bold 30px sans-serif; }
+      </style>
+    <text id="nameText" class="nameText" x="50" y="50" fill="black">Move mouse over the dots!</text>
+    Sorry, your browser does not support inline SVG.
+  </svg>
+
 
   <svg height="30" width="200">
-    <style>
-      .nameText{ font: italic 40px serif; fill: red; }
-  </style>
-    <text id="nameText" class="nameText" x="50" y="50" fill="red">Move mouse over the dots!</text>
-    Sorry, your browser does not support inline SVG.
+
   </svg>
   <script src="gra.js"></script>
   <script type="text/javascript" src="f_force.js"></script>

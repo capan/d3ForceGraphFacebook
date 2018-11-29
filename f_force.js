@@ -22,17 +22,18 @@ var node = svg.append("g")
   .selectAll("circle")
   .data(graph.nodes)
   .enter().append("circle")
-  .attr("r", 3)
+  .attr("r", 4)
   .attr("fill", function (d, i) { return color(d.source); })
   .call(d3.drag()
     .on("start", dragstarted)
     .on("drag", dragged)
     .on("end", dragended));
 
-// node.append("title")
-//   .text(function (d) { return d.name; });
 node.on("mouseover", function (d) {
+  var result;
   document.getElementById("nameText").innerHTML = d.name.split(' ')[0];
+  result = graph.links.filter(word => word.source === d.index);
+  console.log(result);
 });
 
 simulation
@@ -69,4 +70,8 @@ function dragended(d) {
   if (!d3.event.active) simulation.alphaTarget(0);
   d.fx = null;
   d.fy = null;
+}
+
+function returnConnections(i) {
+
 }
