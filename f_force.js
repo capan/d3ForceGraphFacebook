@@ -32,8 +32,9 @@ var node = svg.append("g")
 node.on("mouseover", function (d) {
   var result;
   document.getElementById("nameText").innerHTML = d.name.split(' ')[0];
-  result = graph.links.filter(word => word.source === d.index);
-  console.log(result);
+  // result = graph.links.filter(word => word.source === d.index);
+  console.log(graph.links.filter(word => word.source.index === String(d.index)));
+  console.log(typeof(String(d.index)));
 });
 
 simulation
